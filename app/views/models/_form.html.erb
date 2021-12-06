@@ -1,0 +1,15 @@
+
+<%= simple_form_for([@make, @model]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="mb-3">
+    <%#= f.association :make %>
+    <%= f.input :name %>
+  </div>
+
+  <div class="text-center">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= link_to 'Back', make_models_path(@make), class: 'btn btn-secondary' %>
+  </div>
+<% end %>
